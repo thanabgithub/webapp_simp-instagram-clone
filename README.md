@@ -22,7 +22,7 @@ Development procedures are grouped by timeline. In concrete, Frontend developmen
 # Possible upgrade
 Implementation of Jamstack is one of the choices I may consider to do in the future. 
 Acoording to jamstack.org, "The core principles of pre-rendering, and decoupling, enable sites and applications to be delivered with greater confidence and resilience than ever before.".
-! [Jamstack architecture]https://d33wubrfki0l68.cloudfront.net/b7d16f7f3654fb8572360301e60d76df254a323e/385ec/img/svg/architecture.svg
+![Jamstack architecture]https://d33wubrfki0l68.cloudfront.net/b7d16f7f3654fb8572360301e60d76df254a323e/385ec/img/svg/architecture.svg
 ref: https://jamstack.org/
 # Acknowledge
 

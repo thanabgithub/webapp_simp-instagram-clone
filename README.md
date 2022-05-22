@@ -1,5 +1,5 @@
 # sns-clone
-DEMO: Instagram.
+DEMO: Inspired by Instagram.
 By Thana B. and Company's portfolio to prove our abilities of developing web app
 
 # Architecture/Stack

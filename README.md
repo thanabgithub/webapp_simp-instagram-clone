@@ -1,6 +1,6 @@
 # sns-clone
 DEMO: Inspired by Instagram.
-By Thana B. and Company's portfolio to prove our abilities of developing web app
+By Thana B. and Punyapat
 
 # Architecture/Stack
 - Docker
@@ -10,7 +10,7 @@ By Thana B. and Company's portfolio to prove our abilities of developing web app
 - FastAPI
 - React
 - NGINX
-- headless CMS
+- strapi
 # Well-thought-out points
 Backend
 - Usage of docker container to achieve the independency of environment and reliability of deployment

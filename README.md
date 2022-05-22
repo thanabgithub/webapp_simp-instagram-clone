@@ -6,6 +6,7 @@ By Thana B. and Company's portfolio to prove our abilities of developing web app
 - Docker
 - Postgresql
 - SQLAlchemy
+- Alembic
 - FastAPI
 - React
 - NGINX

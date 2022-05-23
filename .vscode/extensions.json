@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "igress.python-coding-conventions",
+        "himanoa.python-autopep8",
+        "esbenp.prettier-vscode"
+    ]
+}

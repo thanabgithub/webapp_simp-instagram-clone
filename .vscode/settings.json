@@ -1,0 +1,39 @@
+{
+    // interpreter
+    "python.terminal.activateEnvInCurrentTerminal": true, 
+    "python.defaultInterpreterPath": "./venv/bin/python", 
+
+    // formatting
+    "editor.formatOnSave": true, 
+    "python.formatting.provider": "autopep8", 
+    "editor.formatOnSaveMode": "modifications", 
+    "python.formatting.autopep8Path": "./venv/bin/autopep8", 
+    
+    "python.analysis.typeCheckingMode": "basic", 
+
+    "python.analysis.completeFunctionParens": false, 
+    "python.analysis.diagnosticMode": "workspace", 
+
+    "editor.autoClosingOvertype": "never", 
+    "files.autoSave": "onFocusChange", 
+
+    // git
+    "git.enabled": true, 
+
+    // extension
+    "remote.downloadExtensionsLocally": true, 
+
+    // test
+    "python.testing.unittestEnabled": false, 
+    "python.testing.pytestEnabled": true, 
+
+    // wordwrap
+    "editor.wordWrap": "on", 
+    "diffEditor.wordWrap": "inherit", 
+    "editor.wordWrapColumn": 80, 
+    "html.format.unformatted": "", 
+    "editor.codeActionsOnSave": {
+    "source.fixAll": true
+    }, 
+    "python.formatting.blackPath": "venv/bin/black", 
+}

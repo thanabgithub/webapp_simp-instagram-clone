@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "==0.73.0"
+uvicorn = "==0.16.0"
+passlib = "==1.7.4"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

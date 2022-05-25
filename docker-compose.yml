@@ -12,25 +12,23 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      PGDATA: ${DB_CONT_DIR}
+      PGDATA: ${DB_DIR}
     volumes:
-      - ${DB_LOCAL_DIR}:${DB_CONT_DIR}
+      - ./db/${DB_DIR}:/var/lib/postgresql/data/${DB_DIR}
   app:
     container_name: app
-    build: .
+    build:
+      context: ./app
 #    command: bash -c "tail -f /dev/null"
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" # alembic upgrade head &&
     working_dir: /app
     volumes:
-      - ./db:/app/db
-      - ./routers:/app/routers
-      - ./alembic:/app/alembic
-      - ./alembic.ini:/app/alembic.ini
-      - ./main.py:/app/main.py
-      - ./.env:/app/.env
+      - ./app:/app
       - ./.vscode:/app/.vscode
     ports:
-      - 8000:8000
+      - ${APP_LOCAL_PORT}:8000
     depends_on:
       - db
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
     restart: always

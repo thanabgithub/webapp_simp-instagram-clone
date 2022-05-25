@@ -1,3 +1,4 @@
 venv/
-pgdata/
-.env
+db/pgdata/
+
+./.env

@@ -19,8 +19,15 @@ services:
     container_name: app
     build: .
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" # alembic upgrade head &&
+    working_dir: /app
     volumes:
-      - .:/app
+      - ./db:/app/db
+      - ./routers:/app/routers
+      - ./alembic:/app/alembic
+      - ./alembic.ini.:/app/alembic.ini
+      - ./main.py:/app/main.py
+      - ./.env:/app/.env
+      - ./.vscode:/app/.vscode
     ports:
       - 8000:8000
     depends_on:

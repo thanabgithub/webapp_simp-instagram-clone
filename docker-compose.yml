@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+
+  db:
+    container_name: postgres_db
+    image: postgres:14.3
+    restart: always
+    ports:
+      - ${DB_LOCAL_PORT}:5432
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - PGDATA=${DB_CONT_DIR}
+    volumes:
+      - ${DB_LOCAL_DIR}:${DB_CONT_DIR}

@@ -35,5 +35,10 @@
     "editor.codeActionsOnSave": {
     "source.fixAll": true
     }, 
-    "python.formatting.blackPath": "venv/bin/black", 
+    "python.formatting.blackPath": "venv/bin/black",
+    "editor.autoClosingBrackets": "never",
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.autoSurround": "never",
+
 }

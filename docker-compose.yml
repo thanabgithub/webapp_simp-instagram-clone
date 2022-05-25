@@ -9,22 +9,23 @@ services:
     ports:
       - ${DB_LOCAL_PORT}:5432
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - PGDATA=${DB_CONT_DIR}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: ${DB_CONT_DIR}
     volumes:
       - ${DB_LOCAL_DIR}:${DB_CONT_DIR}
   app:
     container_name: app
     build: .
+#    command: bash -c "tail -f /dev/null"
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" # alembic upgrade head &&
     working_dir: /app
     volumes:
       - ./db:/app/db
       - ./routers:/app/routers
       - ./alembic:/app/alembic
-      - ./alembic.ini.:/app/alembic.ini
+      - ./alembic.ini:/app/alembic.ini
       - ./main.py:/app/main.py
       - ./.env:/app/.env
       - ./.vscode:/app/.vscode

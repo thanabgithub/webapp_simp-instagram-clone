@@ -11,13 +11,13 @@ from alembic import context
 #>>>>>>>>>>>> start custom
 """ reference path used for loading files and directories from neighbour as workspace not current directory """
 import os, sys
-
+from dotenv import load_dotenv
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.append(BASE_DIR)
 # BASE_DIR >> workspace
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
-sys.path.append(BASE_DIR)
+
 
 #>>>>>>>>>>>> end custom
 

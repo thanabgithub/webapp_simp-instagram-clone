@@ -1,40 +1,40 @@
 {
     // interpreter
-    "python.terminal.activateEnvInCurrentTerminal": true, 
-    "python.defaultInterpreterPath": "./venv/bin/python", 
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.defaultInterpreterPath": "./venv/bin/python",
 
     // formatting
-    "editor.formatOnSave": true, 
-    "python.formatting.provider": "autopep8", 
-    "editor.formatOnSaveMode": "modifications", 
-    "python.formatting.autopep8Path": "./venv/bin/autopep8", 
-    
-    "python.analysis.typeCheckingMode": "basic", 
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "autopep8",
+    "editor.formatOnSaveMode": "modifications",
+    "python.formatting.autopep8Path": "./venv/bin/autopep8",
 
-    "python.analysis.completeFunctionParens": false, 
-    "python.analysis.diagnosticMode": "workspace", 
+    "python.analysis.typeCheckingMode": "basic",
 
-    "editor.autoClosingOvertype": "never", 
-    "files.autoSave": "onFocusChange", 
+    "python.analysis.completeFunctionParens": false,
+    "python.analysis.diagnosticMode": "workspace",
+
+    "editor.autoClosingOvertype": "never",
+    "files.autoSave": "onFocusChange",
 
     // git
-    "git.enabled": true, 
+    "git.enabled": true,
 
     // extension
-    "remote.downloadExtensionsLocally": true, 
+    "remote.downloadExtensionsLocally": true,
 
     // test
-    "python.testing.unittestEnabled": false, 
-    "python.testing.pytestEnabled": true, 
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
 
     // wordwrap
-    "editor.wordWrap": "on", 
-    "diffEditor.wordWrap": "inherit", 
-    "editor.wordWrapColumn": 80, 
-    "html.format.unformatted": "", 
+    "editor.wordWrap": "on",
+    "diffEditor.wordWrap": "inherit",
+    "editor.wordWrapColumn": 80,
+    "html.format.unformatted": "",
     "editor.codeActionsOnSave": {
     "source.fixAll": true
-    }, 
+    },
     "python.formatting.blackPath": "venv/bin/black",
     "editor.autoClosingBrackets": "never",
     "editor.guides.bracketPairsHorizontal": false,

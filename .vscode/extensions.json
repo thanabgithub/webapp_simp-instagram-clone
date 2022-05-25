@@ -3,6 +3,7 @@
         "igress.python-coding-conventions",
         "himanoa.python-autopep8",
         "esbenp.prettier-vscode",
-        "ssigwart.trailing-whitespace-fixer"
+        "ssigwart.trailing-whitespace-fixer",
+        "jkiviluoto.tws"
     ]
 }

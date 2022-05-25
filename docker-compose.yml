@@ -15,3 +15,14 @@ services:
       - PGDATA=${DB_CONT_DIR}
     volumes:
       - ${DB_LOCAL_DIR}:${DB_CONT_DIR}
+  app:
+    container_name: app
+    build: .
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" # alembic upgrade head &&
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    restart: always

@@ -6,3 +6,4 @@ alembic==1.6.5
 python-dotenv==0.19.2
 yapf==0.32.0
 passlib==1.7.4
+fastapi_sqlalchemy==0.1.6

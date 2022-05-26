@@ -2,3 +2,5 @@ venv/
 db/pgdata/
 
 .env
+
+__pycache__

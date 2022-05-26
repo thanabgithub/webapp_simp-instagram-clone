@@ -1,10 +1,14 @@
 from fastapi import FastAPI
+from fastapi_sqlalchemy import DBSessionMiddleware, db
+
 from db import models
 from db.database import engine
 from routers import user
+import os
 
 app = FastAPI()
 
+app.add_middleware(DBSessionMiddleware, db_url = os.environ["DATABASE_URL"])
 app.include_router(user.router)
 
 

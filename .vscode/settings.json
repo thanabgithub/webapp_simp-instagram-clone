@@ -1,7 +1,7 @@
 {
   // interpreter
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "python.defaultInterpreterPath": "/usr/local/lib/python3.8",
+  "python.defaultInterpreterPath": "venv/bin/python",
   // formatting
   "python.linting.enabled": true,
   "python.linting.pylintPath": "pylint",

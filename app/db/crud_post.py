@@ -1,7 +1,7 @@
 # FRONTEND
 from routers.schemas import (
     PostBase,)    # define format web request and web response from client
-
+from fastapi import HTTPException, status
 # BACKEND
 from db.models import DbPost    # define format of database table and relationship
 
@@ -32,3 +32,16 @@ def create(db: Session, request: PostBase):
 
 def get_all(db: Session):
     return db.query(DbPost).all()
+
+
+def delete(db: Session, id: int, user_id: int):
+    post = db.query(DbPost).filter(DbPost.id == id).first()
+    if not post:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"Post with id {id} not found")
+    if post.user_id != user_id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
+                            detail="Only post creator can delete pot")
+    db.delete(post)
+    db.commit()
+    return 'ok'

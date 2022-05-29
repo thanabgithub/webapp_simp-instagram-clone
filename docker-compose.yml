@@ -19,7 +19,7 @@ services:
     container_name: app
     build:
       context: ./app
-#    command: bash -c "tail -f /dev/null"
+    command: bash -c "tail -f /dev/null"
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" # alembic upgrade head &&
     working_dir: /app
     volumes:

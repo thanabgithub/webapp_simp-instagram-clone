@@ -1,9 +1,13 @@
 {
-    "recommendations": [
-        "igress.python-coding-conventions",
-        "himanoa.python-autopep8",
-        "esbenp.prettier-vscode",
-        "ssigwart.trailing-whitespace-fixer",
-        "jkiviluoto.tws"
-    ]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ssigwart.trailing-whitespace-fixer",
+    "jkiviluoto.tws",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-azuretools.vscode-docker",
+    "ms-python.vscode-pylance",
+    "ms-python.pylint",
+    "znck.grammarly",
+    "streetsidesoftware.code-spell-checker"
+  ]
 }

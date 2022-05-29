@@ -9,6 +9,7 @@
   "python.formatting.provider": "yapf", // or "black" here
   "python.linting.pylintEnabled": true,
   "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.completeFunctionParens": false,
   "python.analysis.diagnosticMode": "workspace",
   "editor.autoClosingOvertype": "never",
   "files.autoSave": "onFocusChange",

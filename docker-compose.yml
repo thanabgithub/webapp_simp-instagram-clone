@@ -6,9 +6,6 @@ services:
     container_name: postgres_db
     #    user: root
     image: postgres:14.3
-    restart: always
-    ports:
-      - ${DB_LOCAL_PORT}:5432
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -16,21 +13,23 @@ services:
       PGDATA: /var/lib/postgresql/data/${DB_DIR}
     volumes:
       - ./db/${DB_DIR}:/var/lib/postgresql/data/${DB_DIR}
-
+    ports:
+      - ${DB_LOCAL_PORT}:5432
+    restart: always
   app:
     container_name: app
     build:
       context: ./app
     image: app:1
-    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" #
     working_dir: /app
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" #
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      APP_SECRET_KEY: ${APP_SECRET_KEY}
     volumes:
       - ./app:/app
-      - ./.vscode:/app/.vscode
     ports:
       - ${APP_LOCAL_PORT}:8000
     depends_on:
       - db
-    environment:
-      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
     restart: always

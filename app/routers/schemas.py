@@ -15,7 +15,7 @@ from datetime import datetime
 
 class UserBase(BaseModel):
 
-    class Config():
+    class Config:
         orm_mode = True
 
     username: str
@@ -25,7 +25,7 @@ class UserBase(BaseModel):
 
 class UserDisplay(BaseModel):
 
-    class Config():
+    class Config:
         orm_mode = True
 
     username: str
@@ -34,7 +34,7 @@ class UserDisplay(BaseModel):
 
 class PostBase(BaseModel):
 
-    class Config():
+    class Config:
         orm_mode = True
 
     image_url: str
@@ -47,13 +47,13 @@ class PostBase(BaseModel):
 class User(BaseModel):
     username: str
 
-    class Config():
+    class Config:
         orm_mode = True
 
 
 class PostDisplay(BaseModel):
 
-    class Config():
+    class Config:
         orm_mode = True
 
     image_url: str
@@ -62,3 +62,9 @@ class PostDisplay(BaseModel):
     timestamp: datetime
     user_id: int
     user: User
+
+
+class UserAuth(BaseModel):
+    id: int
+    isername: str
+    email: str

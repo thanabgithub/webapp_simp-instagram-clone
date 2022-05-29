@@ -7,7 +7,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-#>>>>>>>>>>>> start custom
+# >>>>>>>>>>>> start custom
 """ reference path used for loading files and directories from neighbour as workspace not current directory """
 import os, sys
 from dotenv import load_dotenv
@@ -18,17 +18,17 @@ sys.path.append(BASE_DIR)
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-#>>>>>>>>>>>> end custom
+# >>>>>>>>>>>> end custom
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
 
-#>>>>>>>>>>>> start custom
+# >>>>>>>>>>>> start custom
 
 config.set_main_option("sqlalchemy.url", os.environ["DATABASE_URL"])
 
-#>>>>>>>>>>>> end custom
+# >>>>>>>>>>>> end custom
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -45,13 +45,13 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-#>>>>>>>>>>>> start custom
+# >>>>>>>>>>>> start custom
 
 from db import models
 
 target_metadata = models.Base.metadata
 
-#>>>>>>>>>>>> end custom
+# >>>>>>>>>>>> end custom
 
 
 def run_migrations_offline():

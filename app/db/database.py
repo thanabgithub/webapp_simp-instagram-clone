@@ -8,7 +8,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
-SQLALCHEMY_DATABASE_URL = os.environ["DATABASE_URL"]  # "sqlite:///./ig_api.db"
+SQLALCHEMY_DATABASE_URL = os.environ[
+    "DATABASE_URL"]    # "sqlite:///./ig_api.db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

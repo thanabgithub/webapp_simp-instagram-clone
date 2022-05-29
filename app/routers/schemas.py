@@ -2,21 +2,17 @@
 this module demonstrates format of request and response from clients
 
 caution:
-    for display data structure we need to use 
+    for display data structure we need to use
     class Config():
         orm_mode = True
-
-
 """
 
 from pydantic import BaseModel
 from datetime import datetime
+from typing import List
 
 
 class UserBase(BaseModel):
-
-    class Config:
-        orm_mode = True
 
     username: str
     email: str
@@ -34,9 +30,6 @@ class UserDisplay(BaseModel):
 
 class PostBase(BaseModel):
 
-    class Config:
-        orm_mode = True
-
     image_url: str
     image_url_type: str
     caption: str
@@ -45,10 +38,21 @@ class PostBase(BaseModel):
 
 # For PostDisplay
 class User(BaseModel):
-    username: str
 
     class Config:
         orm_mode = True
+
+    username: str
+
+
+class Comment(BaseModel):
+
+    class Config():
+        orm_mode = True
+
+    text: str
+    username: str
+    timestamp: datetime
 
 
 class PostDisplay(BaseModel):
@@ -60,7 +64,7 @@ class PostDisplay(BaseModel):
     image_url_type: str
     caption: str
     timestamp: datetime
-    user_id: int
+    comments: List[Comment]
     user: User
 
 

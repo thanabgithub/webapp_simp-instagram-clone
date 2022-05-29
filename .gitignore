@@ -1,6 +1,18 @@
+# package
 venv/
-db/pgdata/
+.vscode
 
+#
 .env
 
+# data
 __pycache__
+db/pgdata/
+FAQ.md
+app/images/*.png
+
+# others
+formatter.py
+formatter-reqs.txt
+setup.cfg
+COMMAND.md

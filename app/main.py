@@ -3,7 +3,7 @@ from fastapi_sqlalchemy import DBSessionMiddleware, db
 
 from db import models
 from db.database import engine
-from routers import user, post
+from routers import user, post, comment
 import os
 from fastapi.staticfiles import StaticFiles
 from auth import authentication
@@ -15,6 +15,7 @@ app = FastAPI()
 # add router
 app.include_router(user.router)
 app.include_router(post.router)
+app.include_router(comment.router)
 app.include_router(authentication.router)
 
 

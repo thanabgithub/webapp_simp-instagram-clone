@@ -43,7 +43,7 @@ def create(
             "Paramerter image_url_type can only take values 'absolute' or relative",
         )
 
-    return crud_post.create(db, request)
+    return crud_post.create(db, request, current_user)
 
 
 @router.get("/all", response_model=List[PostDisplay])

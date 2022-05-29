@@ -22,6 +22,7 @@ services:
       context: ./app
     image: app:1
     working_dir: /app
+#    command: bash -c "tail -f /dev/null"
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" #
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
@@ -32,4 +33,4 @@ services:
       - ${APP_LOCAL_PORT}:8000
     depends_on:
       - db
-    restart: always
+#    restart: always

@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from db.database import get_db
 from db import crud_user
 import os
+from routers.schemas import UserAuth
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
@@ -27,7 +28,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
 
 def get_current_user(token: str = Depends(oauth2_scheme),
-                     db: Session = Depends(get_db)):
+                     db: Session = Depends(get_db)) -> UserAuth:
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",

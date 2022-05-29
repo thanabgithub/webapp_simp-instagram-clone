@@ -1,10 +1,15 @@
 """
-this module demonstrates format of request and response from clients
+    this module demonstrates format of request and response from clients
 
-caution:
-    for display data structure we need to use
-    class Config():
-        orm_mode = True
+
+    class with the name ...Base is used handle a request from client to crud as an object
+    class with the name ...Display is used handle a response from crud to client
+
+    class without Base or Display is a child class of another Display class
+    caution:
+        for display data structure we need to use
+        class Config():
+            orm_mode = True
 """
 
 from pydantic import BaseModel
@@ -33,11 +38,10 @@ class PostBase(BaseModel):
     image_url: str
     image_url_type: str
     caption: str
-    user_id: int
 
 
-# For PostDisplay
-class User(BaseModel):
+# For PostDisplay and CommentDisplay
+class _Username(BaseModel):
 
     class Config:
         orm_mode = True
@@ -45,13 +49,14 @@ class User(BaseModel):
     username: str
 
 
+# For PostDisplay
 class Comment(BaseModel):
 
     class Config():
         orm_mode = True
 
     text: str
-    username: str
+    user: _Username
     timestamp: datetime
 
 
@@ -64,11 +69,27 @@ class PostDisplay(BaseModel):
     image_url_type: str
     caption: str
     timestamp: datetime
-    comments: List[Comment]
-    user: User
+    comments: List[Comment]    # Please don't confused with CommentBase
+    user: _Username    # get only username from UserBase. This mechanism is enabled by established relation from model.py
 
 
 class UserAuth(BaseModel):
     id: int
-    isername: str
+    username: str
     email: str
+
+
+class CommentBase(BaseModel):
+
+    text: str
+    post_id: int
+
+
+class CommentDisplay(BaseModel):
+
+    class Config:
+        orm_mode = True
+
+    timestamp: datetime
+    user: _Username    # Please don't confused with UserBase
+    text: str

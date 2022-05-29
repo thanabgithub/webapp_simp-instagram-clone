@@ -7,3 +7,5 @@ python-dotenv==0.19.2
 yapf==0.32.0
 passlib==1.7.4
 fastapi_sqlalchemy==0.1.6
+python-multipart==0.0.5
+aiofiles==0.7.0

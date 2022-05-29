@@ -1,5 +1,12 @@
 """
 this module demonstrates format of request and response from clients
+
+caution:
+    for display data structure we need to use 
+    class Config():
+        orm_mode = True
+
+
 """
 
 from pydantic import BaseModel
@@ -40,10 +47,13 @@ class PostBase(BaseModel):
 class User(BaseModel):
     username: str
 
+    class Config():
+        orm_mode = True
+
 
 class PostDisplay(BaseModel):
 
-    class Config:
+    class Config():
         orm_mode = True
 
     image_url: str

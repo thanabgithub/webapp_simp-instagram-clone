@@ -3,7 +3,12 @@
 DEMO: Inspired by Instagram.
 By Thana B. and Punyapat
 
-Hey everyone, I have just finished only the backbone backend part of the project.
+Hey everyone, I have just finished only the backbone backend part of the project. 
+
+To summarize the my outcome, let me share api docs as the following
+
+thana.team/docs
+
 But the complete version is coming soon.
 
 Here are what I have in mind.

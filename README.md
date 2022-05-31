@@ -7,7 +7,7 @@ Hey everyone, I have just finished only the backbone backend part of the project
 
 To summarize the my outcome, let me share api docs as the following
 
-[api docs](thana.team/docs)
+[api docs](www.thana.team/docs)
 
 But the complete version is coming soon.
 

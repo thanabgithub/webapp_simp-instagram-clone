@@ -32,9 +32,9 @@ image_url_types = ["absolute", "relative"]
 
 @router.post("", response_model=PostDisplay)
 def create(
-        request: PostBase,
-        db: Session = Depends(get_db),
-        current_user: UserAuth = Depends(get_current_user),
+    request: PostBase,
+    db: Session = Depends(get_db),
+    current_user: UserAuth = Depends(get_current_user),
 ):
     if not request.image_url_type in image_url_types:
         raise HTTPException(
@@ -53,8 +53,8 @@ def posts(db: Session = Depends(get_db)):
 
 @router.post("/image")
 def upload_image(
-        image: UploadFile = File(...),
-        current_user: UserAuth = Depends(get_current_user),
+    image: UploadFile = File(...),
+    current_user: UserAuth = Depends(get_current_user),
 ):
     ## file name need to be unique so we add a subfix
     letters = string.ascii_letters
@@ -72,9 +72,9 @@ def upload_image(
 
 @router.get("/delete/{id}")
 def delete(
-        id: int,
-        db: Session = Depends(get_db),
-        current_user: UserAuth = Depends(get_current_user),
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: UserAuth = Depends(get_current_user),
 ):
 
     return crud_post.delete(db, id, current_user.id)

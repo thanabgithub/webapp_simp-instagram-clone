@@ -1,10 +1,10 @@
 # FRONTEND
-from routers.schemas import PostBase, UserAuth    # define format web request and web response from client
+from routers.schemas import PostBase, UserAuth  # define format web request and web response from client
 from fastapi import HTTPException, status
 # CRUD
-from sqlalchemy.orm.session import Session    # define how we handle the base to operate CRUD
+from sqlalchemy.orm.session import Session  # define how we handle the base to operate CRUD
 # BACKEND
-from db.models import DbPost    # define format of database table and relationship
+from db.models import DbPost  # define format of database table and relationship
 
 # Others
 import datetime
@@ -35,11 +35,15 @@ def get_all(db: Session):
 def delete(db: Session, id: int, user_id: int) -> Literal[str]:
     post = db.query(DbPost).filter(DbPost.id == id).first()
     if not post:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"Post with id {id} not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Post with id {id} not found"
+        )
     if post.user_id != user_id:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,
-                            detail="Only post creator can delete pot")
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only post creator can delete pot"
+        )
     db.delete(post)
     db.commit()
     return 'ok'

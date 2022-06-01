@@ -25,7 +25,6 @@ class UserBase(BaseModel):
 
 
 class UserDisplay(BaseModel):
-
     class Config:
         orm_mode = True
 
@@ -42,7 +41,6 @@ class PostBase(BaseModel):
 
 # For PostDisplay and CommentDisplay
 class _Username(BaseModel):
-
     class Config:
         orm_mode = True
 
@@ -51,7 +49,6 @@ class _Username(BaseModel):
 
 # For PostDisplay
 class Comment(BaseModel):
-
     class Config():
         orm_mode = True
 
@@ -61,7 +58,6 @@ class Comment(BaseModel):
 
 
 class PostDisplay(BaseModel):
-
     class Config:
         orm_mode = True
 
@@ -69,8 +65,8 @@ class PostDisplay(BaseModel):
     image_url_type: str
     caption: str
     timestamp: datetime
-    comments: List[Comment]    # Please don't confused with CommentBase
-    user: _Username    # get only username from UserBase. This mechanism is enabled by established relation from model.py
+    comments: List[Comment]  # Please don't confused with CommentBase
+    user: _Username  # get only username from UserBase. This mechanism is enabled by established relation from model.py
 
 
 class UserAuth(BaseModel):
@@ -86,10 +82,9 @@ class CommentBase(BaseModel):
 
 
 class CommentDisplay(BaseModel):
-
     class Config:
         orm_mode = True
 
     timestamp: datetime
-    user: _Username    # Please don't confused with UserBase
+    user: _Username  # Please don't confused with UserBase
     text: str

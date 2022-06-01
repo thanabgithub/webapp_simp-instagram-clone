@@ -12,9 +12,9 @@ router = APIRouter(prefix="/comment", tags=["comment"])
 
 @router.post("")
 def create(
-        request: CommentBase,
-        db: Session = Depends(get_db),
-        current_user: UserAuth = Depends(get_current_user),
+    request: CommentBase,
+    db: Session = Depends(get_db),
+    current_user: UserAuth = Depends(get_current_user),
 ):
     return crud_comment.create(db, request, current_user)
 

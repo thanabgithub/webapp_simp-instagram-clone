@@ -7,7 +7,7 @@ Hey everyone, I have just finished only the backbone backend part of the project
 
 To summarize the my outcome, let me share api docs as the following
 
-[api docs](http://api.thana.team/docs)
+[api docs](http://api.thana.team)
 
 But the complete version is coming soon.
 
@@ -43,9 +43,9 @@ Development procedures are grouped by timeline. In concrete, Frontend developmen
 # Possible upgrade
 
 Implementation of Jamstack is one of the choices I may consider making in the future.
-According to jamstack.org, "The core principles of pre-rendering, and decoupling, enable sites and applications to be delivered with greater confidence and resilience than ever before.". I may break down service from what mentioned "Traditional Web" into "Jamstack".  
-![Jamstack architecture](https://d33wubrfki0l68.cloudfront.net/b7d16f7f3654fb8572360301e60d76df254a323e/385ec/img/svg/architecture.svg)  
-ref: https://jamstack.org/  
+According to jamstack.org, "The core principles of pre-rendering, and decoupling, enable sites and applications to be delivered with greater confidence and resilience than ever before.". I may break down service from what mentioned "Traditional Web" into "Jamstack".
+![Jamstack architecture](https://d33wubrfki0l68.cloudfront.net/b7d16f7f3654fb8572360301e60d76df254a323e/385ec/img/svg/architecture.svg)
+ref: https://jamstack.org/
 The required procedure would be
 
 1. migration webserver to CDN

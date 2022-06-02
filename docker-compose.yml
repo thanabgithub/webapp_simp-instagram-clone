@@ -8,12 +8,12 @@ services:
       - ./gateway/_nginx.conf:/etc/nginx/_nginx.conf
     restart: always
     ports:
-      - ${APP_PUBLIC_PORT}:80
+      - 80:80
     networks:
       - backend
     environment:
       NGINX_PUBLIC_IP: ${NGINX_PUBLIC_IP}
-      APP_PUBLIC_PORT: ${APP_PUBLIC_PORT}
+      APP_DOMAIN: ${APP_DOMAIN}
     command: sh -c "envsubst < /etc/nginx/_nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
   db:
     container_name: postgres_db

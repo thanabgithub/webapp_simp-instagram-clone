@@ -13,8 +13,12 @@ services:
       - backend
     environment:
       NGINX_PUBLIC_IP: ${NGINX_PUBLIC_IP}
-      APP_DOMAIN: ${APP_DOMAIN}
+      API_DOMAIN: ${API_DOMAIN}
     command: sh -c "envsubst < /etc/nginx/_nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
+    depends_on:
+      - db
+      - api
+      - frontend
   db:
     container_name: postgres_db
     #    user: root
@@ -30,30 +34,51 @@ services:
     ports:
       - ${DB_HOST_PORT}:5432
     restart: always
+
     networks:
       - backend
-  app:
-    container_name: app
+  api:
+    container_name: api
     build:
-      context: ./app
-    image: app:1
+      context: ./api
+    image: api:1
     working_dir: /app
 ## command to keep the container on for remote development
 #    command: bash -c "tail -f /dev/null"
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000 --reload" #
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
-      APP_SECRET_KEY: ${APP_SECRET_KEY}
+      API_SECRET_KEY: ${API_SECRET_KEY}
     volumes:
-      - ./app:/app
+      - ./api:/app
 ## port to access from localhost during development (insecured)
-    # ports:
-    #   - ${APP_HOST_PORT}:8000
+    ports:
+      - ${API_HOST_PORT}:8000
     depends_on:
       - db
     restart: always
     networks:
       - backend
+  frontend:
+    container_name: frontend
+    image: node:16
+    working_dir: /app
+    command: bash -c "tail -f /dev/null"
+    environment:
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      API_SECRET_KEY: ${API_SECRET_KEY}
+    volumes:
+      - ./front:/app
+## port to access from localhost during development (insecured)
+    ports:
+      - ${FRONT_HOST_PORT}:3000
+    depends_on:
+      - db
+      - api
+    restart: always
+    networks:
+      - backend
+
 
 networks:
   backend:

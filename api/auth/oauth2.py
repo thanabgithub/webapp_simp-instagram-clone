@@ -11,7 +11,7 @@ from routers.schemas import UserAuth
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
-SECRET_KEY = os.environ["APP_SECRET_KEY"]
+SECRET_KEY = os.environ["API_SECRET_KEY"]
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

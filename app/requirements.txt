@@ -11,3 +11,4 @@ fastapi_sqlalchemy==0.1.6
 python-multipart==0.0.5
 aiofiles==0.7.0
 python-jose==3.2.0
+sqlacodegen==2.3.0

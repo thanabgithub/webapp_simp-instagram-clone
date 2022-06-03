@@ -27,8 +27,8 @@ services:
     volumes:
       - ./db/${DB_DIR}:/var/lib/postgresql/data/${DB_DIR}
 ## port to access from localhost during development (insecured)
-    # ports:
-    #   - ${DB_HOST_PORT}:5432
+    ports:
+      - ${DB_HOST_PORT}:5432
     restart: always
     networks:
       - backend

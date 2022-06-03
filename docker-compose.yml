@@ -6,15 +6,17 @@ services:
     image: nginx:alpine
     volumes:
       - ./gateway/_nginx.conf:/etc/nginx/_nginx.conf
+      - ./gateway/ssl:/etc/nginx/ssl
     restart: always
     ports:
       - 80:80
+      - 443:443
     networks:
       - backend
     environment:
       NGINX_PUBLIC_IP: ${NGINX_PUBLIC_IP}
       API_DOMAIN: ${API_DOMAIN}
-    command: sh -c "envsubst < /etc/nginx/_nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
+    command: sh -c "sudo ufw allow 'Nginx Full'; envsubst < /etc/nginx/_nginx.conf > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
     depends_on:
       - db
       - api

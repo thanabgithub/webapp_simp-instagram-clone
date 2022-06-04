@@ -5,6 +5,7 @@ from sqlalchemy.orm.session import Session
 from db.models import DbUser
 from db.hashing import Hash
 from auth.oauth2 import create_access_token
+from fastapi import HTTPException, Depends, status
 
 router = APIRouter(tags=["authentication"])
 

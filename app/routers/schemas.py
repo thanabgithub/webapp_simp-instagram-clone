@@ -93,3 +93,13 @@ class CommentDisplay(BaseModel):
     timestamp: datetime
     user: _Username    # Please don't confused with UserBase
     text: str
+
+class UserMailVerify(BaseModel):
+
+    id: int
+    user_id: str
+    email: str
+    hash: str
+    active : bool
+    timestamp: datetime
+    

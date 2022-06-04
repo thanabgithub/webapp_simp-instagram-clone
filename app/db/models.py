@@ -1,5 +1,5 @@
 from .database import Base
-from sqlalchemy import Column, Integer, String, DateTime    # data type
+from sqlalchemy import Column, Integer, String, DateTime,Boolean    # data type
 from sqlalchemy import ForeignKey    # tool
 from sqlalchemy.orm import relationship
 
@@ -39,3 +39,13 @@ class DbComment(Base):
 
     post = relationship("DbPost", back_populates="comments")
     user = relationship("DbUser", back_populates="comments")
+
+class DbUserMailVerify(Base):
+    __tablename__ = "emailverify"
+    
+    id= Column(Integer, primary_key=True, index=True)
+    user_id= Column(Integer)
+    email= Column(String)
+    hash= Column(String)
+    active = Column(Boolean)
+    timestamp= Column(DateTime) 

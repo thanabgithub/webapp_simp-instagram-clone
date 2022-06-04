@@ -23,15 +23,23 @@ Here are what I have in mind.
 - React
 - NGINX
 - strapi
+- CDN
 
-# Well-thought-out points
+# Features
 
-Backend
+Infrastructure
 
 - Usage of a docker container to achieve the independence of environment and reliability of deployment
-- Usage of CRUD generator to enhance the efficiency of the backend development
-  Frontend
-- Usage of CMS for administration console to enhance the efficiency of the backend development
+
+Gateway
+
+- Enabling https with http 2.0 without any cost by using cloudflare.
+- Capability to handle DDoS efficiently by NGINX configuration and cloudflare support
+- Enablying caching in both client and server sides.
+
+Database management
+
+- Enabling Alemibic to auto-generate script for database migration's version control
 
 # Phase
 

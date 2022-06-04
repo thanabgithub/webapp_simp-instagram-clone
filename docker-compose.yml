@@ -3,7 +3,7 @@ version: "3.4"
 services:
   gateway:
     container_name: gateway
-    image: nginx:alpine
+    image: nginx:1.22.0-alpine
     volumes:
       - ./gateway/_nginx.conf:/etc/nginx/_nginx.conf
       - ./gateway/ssl:/etc/nginx/ssl

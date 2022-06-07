@@ -4,6 +4,8 @@ services:
   gateway:
     container_name: gateway
     image: nginx:1.22.0-alpine
+    build:
+      context: ./gateway
     volumes:
       - ./gateway/_nginx.conf:/etc/nginx/_nginx.conf
       - ./gateway/ssl:/etc/nginx/ssl
@@ -69,7 +71,7 @@ services:
     image: node:16
     working_dir: /app
 #    command: bash -c "tail -f /dev/null"
-    command: bash -c "npm start"
+    command: bash -c "npm run build; npm install -g serve; serve -s build"
     environment:
       DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
       API_SECRET_KEY: ${API_SECRET_KEY}

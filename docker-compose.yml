@@ -4,8 +4,6 @@ services:
   gateway:
     container_name: gateway
     image: nginx:1.22.0-alpine
-    build:
-      context: ./gateway
     volumes:
       - ./gateway/_nginx.conf:/etc/nginx/_nginx.conf
       - ./gateway/ssl:/etc/nginx/ssl

@@ -60,7 +60,7 @@ class Comment(BaseModel):
 class PostDisplay(BaseModel):
     class Config:
         orm_mode = True
-
+    id: int
     image_url: str
     image_url_type: str
     caption: str

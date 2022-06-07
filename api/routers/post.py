@@ -70,7 +70,7 @@ def upload_image(
     return {"filename": path}
 
 
-@router.get("/delete/{id}")
+@router.delete("/delete/{id}")
 def delete(
     id: int,
     db: Session = Depends(get_db),

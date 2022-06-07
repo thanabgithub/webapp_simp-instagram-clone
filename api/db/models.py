@@ -8,8 +8,8 @@ class DbUser(Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String)
-    email = Column(String)
+    username = Column(String, unique=True)
+    email = Column(String, unique=True)
     password = Column(String)
     items = relationship("DbPost", back_populates="user")
     comments = relationship("DbComment", back_populates="user")

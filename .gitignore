@@ -2,7 +2,7 @@
 venv/
 .vscode
 node_modules
-
+build
 #
 .env
 ssl
